@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1"/>
-<title>Welcome</title>
-</head>
-<body>
-Hello
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:ddl="http://www.thymeleaf.org/dandelion"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables"
+	ddl:bundle-includes="bootstrap-3.2.0" lang="en">
+
+
+<body role="document">
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log out" />
+	</form>
+	<div th:if="${#httpServletRequest.remoteUser != null}">
+		<p th:text="${#httpServletRequest.remoteUser}">sample_user</p>
+	</div>
 </body>
+
 </html>
